@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author 20161bsi0403
  */
 public class ContaCorrente {
-    public int numero;
+    private int numero;
     private String nomeCliente;
     private double saldo = 0;
     private double limite = 0;
@@ -34,23 +34,30 @@ public class ContaCorrente {
         this.agencia = Integer.parseInt(agencia);
     }
     
-    public boolean depositar (double valor){
-        return valor>=0;
+    public void depositar (double valor) throws Exception{
+         if (valor>=0) 
+            this.saldo+=valor;
+        else
+            throw new Exception("Você informou um valor negativo.");
     }
     
-    public boolean sacar(double valor){
-        if (valor > 0 && (this.saldo-valor)>=0 && this.limite>valor){
-            JOptionPane.showMessageDialog(null,"Saque bem sucedido!");
-            return true;
-        }
-        else{ 
-            JOptionPane.showMessageDialog(null,"Saque inválido!");
-            return false;
+    public void sacar(double valor) throws Exception {
+        if (valor > 0) {
+            if (this.saldo - valor >= 0) {
+                this.saldo -= valor;
+                JOptionPane.showMessageDialog(null, "Saque bem sucedido!");
+            } else if (this.limite >= valor) {
+                this.limite -= valor;
+                JOptionPane.showMessageDialog(null, "Saque bem sucedido!");
+            } else {
+                throw new Exception("Você não possui o limite necessário para esta operação.");
+            }
+        } else {
+            throw new Exception("Você informou um valor negativo.");
         }
     }
     
     public void imprimirSaldo(){
-        System.out.println("Prezado(a) " + nomeCliente + ",");
-        System.out.println("seu saldo atual é: R$" + saldo);
+        JOptionPane.showMessageDialog(null,"Prezado(a) " + nomeCliente + ",seu saldo atual é: R$" + saldo);
     }
 }

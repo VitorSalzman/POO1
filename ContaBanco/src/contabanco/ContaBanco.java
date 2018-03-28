@@ -18,27 +18,39 @@ public class ContaBanco {
      */
     public static void main(String[] args) {
         String tipoConta = JOptionPane.showInputDialog("Digite 1 para Conta Poupança e 2 para Conta corrente.");
-      
-        if (tipoConta.equals("1")) {
-            String numConta = JOptionPane.showInputDialog("Digite o numero da conta");
-            String numAgencia = JOptionPane.showInputDialog("Digite a agência");
-            String nomeCliente = JOptionPane.showInputDialog("Digite o nome do cliente");
-            String saldoInicial = JOptionPane.showInputDialog("Digite saldo");
-            
-            ContaPoupanca conta1 = new ContaPoupanca (numConta, nomeCliente, saldoInicial, numAgencia);
-            conta1.imprimirSaldo();
-        } else if (tipoConta.equals("2")) {
-            String numConta = JOptionPane.showInputDialog("Digite o numero da conta");
-            String numAgencia = JOptionPane.showInputDialog("Digite a agência");
-            String nomeCliente = JOptionPane.showInputDialog("Digite o nome do cliente");
-            String limiteInicial = JOptionPane.showInputDialog("Digite o limite");
-            String saldoInicial = JOptionPane.showInputDialog("Digite saldo");
-            
-            ContaCorrente conta1 = new ContaCorrente(numConta, nomeCliente, numConta, saldoInicial, numAgencia);
-        conta1.imprimirSaldo();
-        } else {
-            JOptionPane.showMessageDialog(null, "Opção inválida;");
+        
+        switch (tipoConta) {
+            case "1":
+                {
+                    String numConta = JOptionPane.showInputDialog("Digite o numero da conta");
+                    String numAgencia = JOptionPane.showInputDialog("Digite a agência");
+                    String nomeCliente = JOptionPane.showInputDialog("Digite o nome do cliente");
+                    String saldoInicial = JOptionPane.showInputDialog("Digite saldo");
+                    ContaPoupanca conta1 = new ContaPoupanca (numConta, nomeCliente, saldoInicial, numAgencia);
+                    try {
+                        conta1.depositar(120);
+                    } catch (Exception salz) {
+                        JOptionPane.showMessageDialog(null, salz.getMessage());
+                    }
+                    conta1.imprimirSaldo();
+                    break;
+                }
+            case "2":
+                {
+                    String numConta = JOptionPane.showInputDialog("Digite o numero da conta");
+                    String numAgencia = JOptionPane.showInputDialog("Digite a agência");
+                    String nomeCliente = JOptionPane.showInputDialog("Digite o nome do cliente");
+                    String limiteInicial = JOptionPane.showInputDialog("Digite o limite");
+                    String saldoInicial = JOptionPane.showInputDialog("Digite saldo");
+                    ContaCorrente conta1 = new ContaCorrente(numConta, nomeCliente, limiteInicial, saldoInicial, numAgencia);
+                    //conta1.imprimirSaldo();
+                    break;
+                }
+            default:
+                JOptionPane.showMessageDialog(null, "Opção inválida;");
+                break;
         }
+        
     }
 
 }

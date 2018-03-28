@@ -5,6 +5,8 @@
  */
 package contabanco;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 20161bsi0403
@@ -30,24 +32,24 @@ public class ContaPoupanca {
         this.agencia = Integer.parseInt(agencia);
     }
     
-    public boolean depositar (double valor){
-        if (valor>=0) return true;
-        else return false;
+    public void depositar (double valor) throws Exception{
+        if (valor>=0) 
+            this.saldo+=valor;
+        else
+            throw new Exception("Você informou um valor negativo.");
+       
     }
     
-    public boolean sacar(double valor){
-        if (valor > 0 && (this.saldo-valor)>=0){
-            System.out.println("Saque bem sucedido!");
-            return true;
+    public void sacar(double valor) throws Exception{
+        if (valor > 0 && (this.saldo - valor) >= 0) {
+            this.saldo -= valor;
+            JOptionPane.showMessageDialog(null, "Saque bem sucedido!");
+        } else {
+            throw new Exception("Você não possui o saldo necessário para esta operação.");
         }
-        else{ 
-            System.out.println("Saque inválido!");
-            return false;
-        }
-    }
+    }    
     
     public void imprimirSaldo(){
-        System.out.println("Prezado(a) " + nomeCliente + ",");
-        System.out.println("seu saldo atual é: R$" + saldo);
+        JOptionPane.showMessageDialog(null,"Prezado(a) " + nomeCliente + ",seu saldo atual é: R$" + saldo);
     }
 }
