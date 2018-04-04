@@ -26,9 +26,10 @@ public class ContaBanco {
                     String numAgencia = JOptionPane.showInputDialog("Digite a agência");
                     String nomeCliente = JOptionPane.showInputDialog("Digite o nome do cliente");
                     String saldoInicial = JOptionPane.showInputDialog("Digite saldo");
-                    ContaPoupanca conta1 = new ContaPoupanca (numConta, nomeCliente, saldoInicial, numAgencia);
+                    ContaPoupanca conta1 = null;
                     try {
-                        conta1.depositar(120);
+                        conta1 =  new ContaPoupanca (numConta, nomeCliente, saldoInicial, numAgencia);
+                        //conta1.depositar(-120);
                     } catch (Exception salz) {
                         JOptionPane.showMessageDialog(null, salz.getMessage());
                     }
@@ -42,8 +43,17 @@ public class ContaBanco {
                     String nomeCliente = JOptionPane.showInputDialog("Digite o nome do cliente");
                     String limiteInicial = JOptionPane.showInputDialog("Digite o limite");
                     String saldoInicial = JOptionPane.showInputDialog("Digite saldo");
-                    ContaCorrente conta1 = new ContaCorrente(numConta, nomeCliente, limiteInicial, saldoInicial, numAgencia);
-                    //conta1.imprimirSaldo();
+                    ContaCorrente conta1 = null;
+                    try {                  
+                        conta1 = new ContaCorrente(numConta, nomeCliente, limiteInicial, saldoInicial, numAgencia);
+                        int deposit = JOptionPane.showConfirmDialog(null, "Deseja depositar algum valor?");
+                        if (deposit == 0){
+                            conta1.depositar(120);
+                        }
+                    } catch (Exception salz) {
+                        JOptionPane.showMessageDialog(null, salz.getMessage());
+                    }
+                    conta1.imprimirSaldo();
                     break;
                 }
             default:

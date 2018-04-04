@@ -18,18 +18,28 @@ public class ContaPoupanca {
     private double saldo = 0;
     private int agencia;
 
-    public ContaPoupanca(int numero, String nomeCliente, double saldo, int agencia) {
+    public ContaPoupanca(int numero, String nomeCliente, double saldo, int agencia) throws Exception {
         this.numero = numero;
         this.nomeCliente = nomeCliente;
-        this.saldo = saldo;
+        this.setSaldo(saldo);
         this.agencia = agencia;
     }
 
-    public ContaPoupanca(String numero, String nomeCliente, String saldo, String agencia) {
+    public ContaPoupanca(String numero, String nomeCliente, String saldo, String agencia) throws Exception {
         this.numero = Integer.parseInt(numero);
         this.nomeCliente = nomeCliente;
-        this.saldo = Double.parseDouble(saldo);
+        this.setSaldo(saldo);
         this.agencia = Integer.parseInt(agencia);
+    }
+    
+    public void setSaldo(double saldo) throws Exception{
+        if (saldo>=0) this.saldo = saldo;
+        else throw new Exception ("Saldo não pode ser negativo");
+    }
+     public void setSaldo(String saldo) throws Exception{
+        double saldoAtual = Double.parseDouble(saldo);
+        if (saldoAtual>=0) this.saldo = saldoAtual;
+        else throw new Exception ("Saldo não pode ser negativo");
     }
     
     public void depositar (double valor) throws Exception{
