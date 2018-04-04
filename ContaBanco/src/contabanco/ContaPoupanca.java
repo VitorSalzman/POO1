@@ -31,7 +31,7 @@ public class ContaPoupanca {
         this.setSaldo(saldo);
         this.agencia = Integer.parseInt(agencia);
     }
-    
+    //Setters para tratamento caso o usuário digite um valor negativo
     public void setSaldo(double saldo) throws Exception{
         if (saldo>=0) this.saldo = saldo;
         else throw new Exception ("Saldo não pode ser negativo");
@@ -41,13 +41,12 @@ public class ContaPoupanca {
         if (saldoAtual>=0) this.saldo = saldoAtual;
         else throw new Exception ("Saldo não pode ser negativo");
     }
-    
+    //
     public void depositar (double valor) throws Exception{
         if (valor>=0) 
             this.saldo+=valor;
         else
             throw new Exception("Você informou um valor negativo.");
-       
     }
     
     public void sacar(double valor) throws Exception{

@@ -29,11 +29,11 @@ public class ContaCorrente {
     public ContaCorrente(String numero, String nomeCliente, String limite, String saldo, String agencia) throws Exception {
         this.numero = Integer.parseInt(numero);
         this.nomeCliente = nomeCliente;
-        this.limite = Double.parseDouble(limite);
+        this.setLimite(limite);
         this.setSaldo(saldo);
         this.agencia = Integer.parseInt(agencia);
     }
-    
+    //Setters para tratamento caso o usuário digite um valor negativo
     public void setSaldo(double saldo) throws Exception{
         if (saldo>=0) this.saldo = saldo;
         else throw new Exception ("Saldo não pode ser negativo");
@@ -43,7 +43,21 @@ public class ContaCorrente {
         if (saldoAtual>=0) this.saldo = saldoAtual;
         else throw new Exception ("Saldo não pode ser negativo");
     }
+
+    public void setLimite(double limite) throws Exception {
+        if (limite >=0) this.limite = limite;
+        else throw new Exception("Limite negativo.");
+    }
     
+    public void setLimite(String limite) throws Exception {
+        double dLim = Double.parseDouble(limite);
+        if (dLim >= 0) {
+            this.limite = dLim;
+        } else {
+            throw new Exception("Limite negativo.");
+        }
+    }
+    //
     public void depositar (double valor) throws Exception{
          if (valor>=0) 
             this.saldo+=valor;
