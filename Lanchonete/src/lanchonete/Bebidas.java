@@ -10,5 +10,19 @@ package lanchonete;
  * @author 20161bsi0284
  */
 public class Bebidas extends Produto {
-    private boolean gelo;
+    private boolean comGelo = true;
+    private char tamanho; // P = Copo/Lata de 350 ml, M = Copo/Garrafinha de 600 ml, G = Jarra de suco/Garrafa (1 L)
+
+    public char getTamanho() {
+        return tamanho;
+    }
+    public void setTamanho(char tamanho) {
+        this.tamanho = tamanho;
+    }
+    public boolean isComGelo() {
+        return comGelo;
+    }
+    public void setComGelo(boolean comGelo) {
+        this.comGelo = comGelo;
+    }
 }

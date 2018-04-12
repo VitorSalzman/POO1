@@ -12,7 +12,25 @@ package lanchonete;
 public class ItemPedido {
     private int quantidade;
     private double preco; //preço cobrado na hora, pode ser mantido como histórico e permite a possibilidade de aplicar descontos
+    private Produto produto; 
+    private String anotacao; // Ex: sem gelo, preço promocional, bem passado
 
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public String getAnotacao() {
+        return anotacao;
+    }
+
+    public void setAnotacao(String anotacao) {
+        this.anotacao = anotacao;
+    }
+    
     public int getQuantidade() {
         return quantidade;
     }

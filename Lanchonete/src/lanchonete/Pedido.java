@@ -5,15 +5,28 @@
  */
 package lanchonete;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 20161bsi0284
  */
 public class Pedido {
     private double valor;
-    private ItemPedido lanche[];
+    private ArrayList lanche = new ArrayList(); 
     private boolean aberto = true;
+    private int index=0;
+       
+    void fecharConta(){
+        
     
-    void fecharConta(){}
-    void adicionarProduto(ItemPedido item){}
+    }
+    void adicionarItem(ItemPedido item){
+        lanche.add(item);
+        
+    }
+    
+    public void listaProdutos(){
+        
+    }
 }
