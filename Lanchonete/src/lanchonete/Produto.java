@@ -12,8 +12,8 @@ package lanchonete;
 
 //Classe funciona como um cardápio
 public abstract class Produto  {
-    double precoUni;
-    private String descricao;
+    double precoUni;        //Valor unitário
+    private String descricao;       //Descrição do Produto (Nome, do que é feito)
     
     public String getDescricao() {
         return descricao;
