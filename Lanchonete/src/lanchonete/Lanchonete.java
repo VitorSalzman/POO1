@@ -7,13 +7,13 @@ package lanchonete;
 
 /**
  *
- * @author 20161bsi0284
+ * this should be the main
  */
 public class Lanchonete {
     private String nome;
-    private Pedido pedido;
     
-    void fazerPedido(){}
-   
+    public static void main(String[] args) {
+     
+    }
     
 }
