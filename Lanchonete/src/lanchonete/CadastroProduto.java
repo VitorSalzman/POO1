@@ -5,19 +5,18 @@
  */
 package lanchonete;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 20161bsi0284
  */
 public class CadastroProduto {
-     String opcao = JOptionPane.showInputDialog("Escolha a opção"
-                + "\n(1)criar usuário"
-                + "\n(2)listar usuário JOptionPane"
-                + "\n(3)listar usuário Console\n");                             
-        int opcaoEscolhida = Integer.parseInt(opcao);
-        Listar listar = new Listar();
-        if (opcaoEscolhida == 1){
-            Usuario usuario = new Usuario();
+    String opcao = JOptionPane.showInputDialog("Escolha a opção\n(1)cadastrar produto \n(2)listar produtos JOptionPane \n(3)listar produtos Console\n");                             
+    int opcaoEscolhida = Integer.parseInt(opcao);
+    Listar listar = new Listar();
+    if (opcaoEscolhida == 1){
+            Produto produto = new Produto();
             usuario.nomeCompleto = JOptionPane.showInputDialog("Nome completo:");
             usuario.login = JOptionPane.showInputDialog("Login:");
            while(true){
