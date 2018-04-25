@@ -1,9 +1,10 @@
+package persistencia;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lanchonete;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -11,6 +12,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import lanchonete.Hamburguer;
+import lanchonete.Suco;
+import lanchonete.Refrigerante;
+import lanchonete.Produto;
 
 /**
  *
@@ -23,33 +28,29 @@ public class ManipulaCSVProduto {
         String[] arrayLinhaCSV = null;
         BufferedReader br = null;
         String linha = "";
-        Double preco;
         ArrayList listaProdutos = new ArrayList();
         try{
             br = new BufferedReader(new FileReader(csvFile));
             while ((linha = br.readLine()) != null){
                 arrayLinhaCSV = linha.split(",");
-                if(arrayLinhaCSV[0].compareTo("hamburguer") == 0){
+                if(arrayLinhaCSV[0].equalsIgnoreCase("hamburguer")){
                     Hamburguer hamburguer = new Hamburguer();
                     hamburguer.setTipo(arrayLinhaCSV[1]);
-                    preco = Double.parseDouble(arrayLinhaCSV[2]);
-                    hamburguer.setValor(preco);
+                    hamburguer.setValor(Double.parseDouble(arrayLinhaCSV[2]));
                     hamburguer.setDescricao(arrayLinhaCSV[3]);
                     listaProdutos.add(hamburguer);
                 }
-                else if (arrayLinhaCSV[0].compareTo("suco") == 0){
+                else if (arrayLinhaCSV[0].equalsIgnoreCase("suco")){
                     Suco suco = new Suco();
                     suco.setSabor(arrayLinhaCSV[1]);
-                    preco = Double.parseDouble(arrayLinhaCSV[2]);
-                    suco.setValor(preco);
+                    suco.setValor(Double.parseDouble(arrayLinhaCSV[2]));
                     suco.setDescricao(arrayLinhaCSV[3]);
                     listaProdutos.add(suco);
                 }
-                else if (arrayLinhaCSV[0].compareTo("refrigerante") == 0){
+                else if (arrayLinhaCSV[0].equalsIgnoreCase("refrigerante")){
                     Refrigerante refrigerante = new Refrigerante();
                     refrigerante.setMarca(arrayLinhaCSV[1]);
-                    preco = Double.parseDouble(arrayLinhaCSV[2]);
-                    refrigerante.setValor(preco);
+                    refrigerante.setValor(Double.parseDouble(arrayLinhaCSV[2]));
                     refrigerante.setDescricao(arrayLinhaCSV[3]);
                     listaProdutos.add(refrigerante);
                 }  
@@ -70,7 +71,6 @@ public class ManipulaCSVProduto {
         return listaProdutos;
     }
     public static void saveProduto(Produto produto){
-        String preco;
         try{
             FileWriter writer = new FileWriter(".\\file.csv",true);
             if (produto instanceof Hamburguer){
@@ -87,8 +87,7 @@ public class ManipulaCSVProduto {
                 writer.append(((Refrigerante) produto).getMarca());
             }
             writer.append(',');
-            preco = String.valueOf(produto.getValor());
-            writer.append(preco);
+            writer.append(String.valueOf(produto.getValor()));
             writer.append(',');
             writer.append(produto.getDescricao());
             writer.append('\n');
