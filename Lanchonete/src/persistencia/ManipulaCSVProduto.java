@@ -28,7 +28,7 @@ public class ManipulaCSVProduto {
         String[] arrayLinhaCSV = null;
         BufferedReader br = null;
         String linha = "";
-        ArrayList listaProdutos = new ArrayList();
+        ArrayList<Produto> listaProdutos = new ArrayList();
         try{
             br = new BufferedReader(new FileReader(csvFile));
             while ((linha = br.readLine()) != null){

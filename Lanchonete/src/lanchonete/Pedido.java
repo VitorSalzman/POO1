@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Pedido {
     private double valor;       //Valor final do pedido
-    private ArrayList lanche = new ArrayList(); //Array dinâmico para objetos de pedidos feitos
+    private ArrayList<ItemPedido> lanche = new ArrayList(); //Array dinâmico para objetos de pedidos feitos
     private boolean aberto = true;      //Pedido em aberto → Ainda podem pedir, adicionar mais coisas
     private int index=0;        //Variável para percorrer a array
     
