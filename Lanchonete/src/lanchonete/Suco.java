@@ -12,6 +12,13 @@ package lanchonete;
 public class Suco extends Bebidas{
     private String sabor;
     private boolean comAcucar = true; 
+
+    public Suco(String sabor, char tamanho, double precoUni, String descricao, int codigo) {
+        super(tamanho, precoUni, descricao, codigo);
+        this.sabor = sabor;
+    }
+    
+    public Suco(){}
     
     public String getSabor() {
         return sabor;

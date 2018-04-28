@@ -5,15 +5,33 @@
  */
 package lanchonete;
 
+import java.io.Serializable;
+
 /**
  *
  * @author 20161bsi0284
  */
 
 //Classe funciona como um cardápio
-public abstract class Produto  {
+public abstract class Produto implements Serializable  {
     double precoUni;        //Valor unitário
     private String descricao;       //Descrição do Produto (Nome, do que é feito)
+    private int codigo;
+
+    public Produto(double precoUni, String descricao, int codigo) {
+        this.precoUni = precoUni;
+        this.descricao = descricao;
+        this.codigo = codigo;
+    }
+    public Produto(){}
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
     
     public String getDescricao() {
         return descricao;

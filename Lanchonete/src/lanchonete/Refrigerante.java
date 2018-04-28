@@ -12,6 +12,15 @@ package lanchonete;
 public class Refrigerante extends Bebidas{
     private String marca;
 
+    public Refrigerante(String marca, char tamanho, double precoUni, String descricao, int codigo) {
+        super(tamanho, precoUni, descricao, codigo);
+        this.marca = marca;
+    }
+    
+    public Refrigerante(){
+        
+    }
+
     public String getMarca() {
         return marca;
     }

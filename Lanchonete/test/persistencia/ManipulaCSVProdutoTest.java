@@ -6,7 +6,9 @@
 package persistencia;
 
 import java.util.ArrayList;
+import lanchonete.Hamburguer;
 import lanchonete.Produto;
+import lanchonete.Suco;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,7 +35,11 @@ public class ManipulaCSVProdutoTest {
     
     @Before
     public void setUp() {
+        Hamburguer aburg = new Hamburguer ("Frango",21,"Filé de frango assado, alface, maionese, queijo mussarela duplo",2);
+        Suco juice = new Suco("Laranja", 'M', 6, "Suco de laranjas feito na hora, c/ açúcar", 12);
         
+        ManipulaCSVProduto.saveProduto(aburg);
+        ManipulaCSVProduto.saveProduto(juice);
     }
     
     @After
@@ -46,16 +52,19 @@ public class ManipulaCSVProdutoTest {
     @Test
     public void testReadCSVFile() {
         System.out.println("readCSVFile");
-        ArrayList expResult = null;
-        ArrayList result = ManipulaCSVProduto.readCSVFile();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<Produto> produtos = ManipulaCSVProduto.readCSVFile();       
+        Produto produto = produtos.get(0);
+        assertEquals(2,produto.getCodigo());      
+        for (int i  = 0; i< produtos.size() ; i++){            
+            if (produtos.get(i) == null){
+                fail ("Produto não salvo");
+            } 
+        }
     }
 
     /**
      * Test of saveProduto method, of class ManipulaCSVProduto.
-     */
+    
     @Test
     public void testSaveProduto() {
         System.out.println("saveProduto");
@@ -63,6 +72,6 @@ public class ManipulaCSVProdutoTest {
         ManipulaCSVProduto.saveProduto(produto);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    } */
     
 }

@@ -18,13 +18,13 @@ public class Pedido {
     private int index=0;        //Variável para percorrer a array
     
     //Calcula o valor final do pedido e seta o status para fechado
-    void fecharConta(){
-         for(index = 0; index < lanche.size(); index++){
-             ItemPedido item = (ItemPedido)lanche.get(index);
-             this.valor+= item.getPreco()*item.getQuantidade();   
-         }
-         System.out.println("Valor total: "+valor);
-         this.aberto = false;
+    void fecharConta() {
+        for (index = 0; index < lanche.size(); index++) {
+            ItemPedido item = (ItemPedido) lanche.get(index);
+            this.valor += item.getPreco() * item.getQuantidade();
+        }
+        System.out.println("Valor total: " + valor);
+        this.aberto = false;
     }
     //Adiciona o objeto na array
     void adicionarItem(ItemPedido item){
@@ -34,7 +34,7 @@ public class Pedido {
     public void listaProdutos(){
         for(index = 0; index < lanche.size(); index++){
             ItemPedido item = (ItemPedido)lanche.get(index);
-            System.out.println(item.getProduto().getDescricao() + "Preco " + item.getPreco()+ " Qtd "+item.getQuantidade());
+            System.out.println(item.getProduto().getDescricao() + "Preço " + item.getPreco()+ " Qtd "+item.getQuantidade());
         }
     }
 }

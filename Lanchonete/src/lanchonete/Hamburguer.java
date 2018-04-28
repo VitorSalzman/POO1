@@ -12,6 +12,14 @@ package lanchonete;
 public class Hamburguer extends Produto {
     private String tipo;
 
+    public Hamburguer(String tipo, double precoUni, String descricao, int codigo) {
+        super(precoUni, descricao, codigo);
+        this.tipo = tipo;
+    }
+    public Hamburguer(){
+        
+    }
+     
     public String getTipo() {
         return tipo;
     }
