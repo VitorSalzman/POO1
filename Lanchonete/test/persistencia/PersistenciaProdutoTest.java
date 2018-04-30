@@ -8,6 +8,7 @@ package persistencia;
 import java.util.ArrayList;
 import lanchonete.Hamburguer;
 import lanchonete.Produto;
+import lanchonete.Refrigerante;
 import lanchonete.Suco;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,9 +21,9 @@ import static org.junit.Assert.*;
  *
  * @author Serenna
  */
-public class ManipulaCSVProdutoTest {
+public class PersistenciaProdutoTest {
     
-    public ManipulaCSVProdutoTest() {
+    public PersistenciaProdutoTest() {
     }
     
     @BeforeClass
@@ -35,11 +36,17 @@ public class ManipulaCSVProdutoTest {
     
     @Before
     public void setUp() {
-        Hamburguer aburg = new Hamburguer ("Frango",21,"Filé de frango assado, alface, maionese, queijo mussarela duplo",2);
-        Suco juice = new Suco("Laranja", 'M', 6, "Suco de laranjas feito na hora, c/ açúcar", 12);
+        Hamburguer aburg = new Hamburguer ("Frango",21,"XFrango Duplo",2);
+        Hamburguer vburg = new Hamburguer ("Vegetariano",15,"XVegeta",6);
+        Hamburguer cburg = new Hamburguer ("Boi",19,"XCow",3);
+        Suco juice = new Suco("Laranja", 'M', 6, "Suco de laranja", 12);
+        Refrigerante bb = new Refrigerante("Coca Cola", 'G', 4, "Refrigerante Coca Cola", 13);
         
-        ManipulaCSVProduto.saveProduto(aburg);
-        ManipulaCSVProduto.saveProduto(juice);
+        PersistenciaProduto.saveProduto(aburg);
+        PersistenciaProduto.saveProduto(cburg);
+        PersistenciaProduto.saveProduto(vburg);
+        PersistenciaProduto.saveProduto(bb);
+        PersistenciaProduto.saveProduto(juice);
     }
     
     @After
@@ -52,7 +59,7 @@ public class ManipulaCSVProdutoTest {
     @Test
     public void testReadCSVFile() {
         System.out.println("readCSVFile");
-        ArrayList<Produto> produtos = ManipulaCSVProduto.readCSVFile();       
+        ArrayList<Produto> produtos = PersistenciaProduto.readCSVFile();       
         Produto produto = produtos.get(0);
         assertEquals(2,produto.getCodigo());      
         for (int i  = 0; i< produtos.size() ; i++){            

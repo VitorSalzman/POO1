@@ -18,7 +18,18 @@ public class ItemPedido {
     public Produto getProduto() {
         return produto;
     }
+    
+    public ItemPedido(){
+        
+    }
 
+    public ItemPedido(int quantidade, double preco, Produto produto, String anotacao) {
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.produto = produto;
+        this.anotacao = anotacao;
+    }
+    
     public void setProduto(Produto produto) {
         this.produto = produto;
     }

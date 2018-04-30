@@ -21,10 +21,10 @@ import lanchonete.Produto;
  *
  * @author Serenna
  */
-public class ManipulaCSVProduto {
+public class PersistenciaProduto {
     
     public static ArrayList readCSVFile(){
-        String csvFile = ".\\file.csv";
+        String csvFile = ".\\cardapio.csv";
         String[] arrayLinhaCSV = null;
         BufferedReader br = null;
         String linha = "";
@@ -75,7 +75,7 @@ public class ManipulaCSVProduto {
     }
     public static void saveProduto(Produto produto){
         try{
-            FileWriter writer = new FileWriter(".\\file.csv",true);
+            FileWriter writer = new FileWriter(".\\cardapio.csv",true);
             writer.append(produto.getCodigo()+";");
             if (produto instanceof Hamburguer){
                 writer.append("hamburguer");
