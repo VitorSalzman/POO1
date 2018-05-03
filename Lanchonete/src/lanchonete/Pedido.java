@@ -13,11 +13,9 @@ import java.util.ArrayList;
  */
 public class Pedido {
     private int idPedido;
-    private double valor;       //Valor final do pedido
     private ArrayList<ItemPedido> lanche = new ArrayList(); //Array dinâmico para objetos de pedidos feitos
     private boolean aberto = true;      //Pedido em aberto → Ainda podem pedir, adicionar mais coisas
-    private int index=0;        //Variável para percorrer a array
-
+   
     public Pedido(int idPedido) {
         this.idPedido = idPedido;
     }
@@ -40,9 +38,10 @@ public class Pedido {
     
     //Calcula o valor final do pedido e seta o status para fechado (Considerado "setValor")
     public void fecharConta() {
-        for (index = 0; index < lanche.size(); index++) {
+        double valor = 0;
+        for (int index = 0; index < lanche.size(); index++) {
             ItemPedido item = (ItemPedido) lanche.get(index);
-            this.valor += item.getPreco() * item.getQuantidade();
+            valor += item.getPreco() * item.getQuantidade();
         }
         System.out.println("Valor total: " + valor);
         this.aberto = false;
@@ -53,21 +52,12 @@ public class Pedido {
         lanche.add(item);
     }
 
-    public void setValor(double valor) {
-        if (valor >=0){
-            this.valor = valor;
-        }
-    }
     //Apenas coloca na tela o "nome" (descrição), preço unitário e quantidade
     public void listaProdutos(){
-        for(index = 0; index < lanche.size(); index++){
+        for(int index = 0; index < lanche.size(); index++){
             ItemPedido item = (ItemPedido)lanche.get(index);
             System.out.println(item.getProduto().getDescricao() + "Preço " + item.getPreco()+ " Qtd "+item.getQuantidade());
         }
-    }
-
-    public double getValor() {
-        return valor;
     }
 
     public ArrayList<ItemPedido> getLanche() {

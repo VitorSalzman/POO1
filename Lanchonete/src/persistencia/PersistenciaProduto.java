@@ -77,20 +77,17 @@ public class PersistenciaProduto {
         try{
             FileWriter writer = new FileWriter(".\\cardapio.csv",true);
             writer.append(produto.getCodigo()+";");
+            writer.append(produto.getNome()+";");
             if (produto instanceof Hamburguer){
-                writer.append("hamburguer");
-                writer.append(';');
-                writer.append(((Hamburguer) produto).getTipo());
+                writer.append("hamburguer;");
+                writer.append(((Hamburguer) produto).getTipo()+";");
             } else if (produto instanceof Suco){
-                writer.append("suco");
-                writer.append(';');
-                writer.append(((Suco) produto).getSabor());
+                writer.append("suco;");
+                writer.append(((Suco) produto).getSabor()+";");
             } else if (produto instanceof Refrigerante){
-                writer.append("refrigerante");
-                writer.append(';');
-                writer.append(((Refrigerante) produto).getMarca());
+                writer.append("refrigerante;");
+                writer.append(((Refrigerante) produto).getMarca()+";");
             }
-            writer.append(';');
             writer.append(String.valueOf(produto.getValor()));
             writer.append(';');
             writer.append(produto.getDescricao());
