@@ -6,6 +6,7 @@
 package lanchonete;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -14,10 +15,19 @@ import java.util.ArrayList;
 public class Pedido {
     private int idPedido;
     private ArrayList<ItemPedido> lanche = new ArrayList(); //Array dinâmico para objetos de pedidos feitos
+    private String dataPedido;
     private boolean aberto = true;      //Pedido em aberto → Ainda podem pedir, adicionar mais coisas
    
     public Pedido(int idPedido) {
         this.idPedido = idPedido;
+    }
+
+    public String getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(String dataPedido) {
+        this.dataPedido = dataPedido;
     }
    
     public void setAberto(boolean aberto) {

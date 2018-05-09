@@ -15,7 +15,7 @@ import java.io.Serializable;
 //Classe funciona como um cardápio
 public abstract class Produto implements Serializable  {
     double precoUni;        //Valor unitário
-    String nome;
+    String nome;            //Nome "fantasia" do produto
     private String descricao;       //Descrição do Produto (Detalhes do que é feito)
     private int codigo;
 

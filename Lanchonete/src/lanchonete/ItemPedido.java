@@ -14,6 +14,28 @@ public class ItemPedido {
     private double preco; //preço cobrado na hora, pode ser mantido como histórico e permite a possibilidade de aplicar descontos
     private Produto produto; 
     private String anotacao; // Ex: sem gelo, preço promocional, bem passado
+    private int codItemP;
+    private int codPedido;
+    
+    public ItemPedido(int codItemP){
+        this.codItemP = codItemP;
+    }
+    
+    public int getCodItemP() {
+        return codItemP;
+    }
+
+    public void setCodItemP(int codItemP) {
+        this.codItemP = codItemP;
+    }
+
+    public int getCodPedido() {
+        return codPedido;
+    }
+
+    public void setCodPedido(int codPedido) {
+        this.codPedido = codPedido;
+    }
 
     public Produto getProduto() {
         return produto;

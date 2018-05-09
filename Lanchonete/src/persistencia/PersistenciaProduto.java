@@ -33,28 +33,31 @@ public class PersistenciaProduto {
             br = new BufferedReader(new FileReader(csvFile));
             while ((linha = br.readLine()) != null){
                 arrayLinhaCSV = linha.split(";");
-                if(arrayLinhaCSV[1].equalsIgnoreCase("hamburguer")){
+                if(arrayLinhaCSV[2].equalsIgnoreCase("hamburguer")){
                     Hamburguer hamburguer = new Hamburguer();
+                    hamburguer.setNome(arrayLinhaCSV[1]);
                     hamburguer.setCodigo(Integer.parseInt(arrayLinhaCSV[0]));
                     hamburguer.setTipo(arrayLinhaCSV[2]);
                     hamburguer.setValor(Double.parseDouble(arrayLinhaCSV[3]));
-                    hamburguer.setDescricao(arrayLinhaCSV[4]);
+                    hamburguer.setDescricao(arrayLinhaCSV[5]);
                     listaProdutos.add(hamburguer);
                 }
-                else if (arrayLinhaCSV[1].equalsIgnoreCase("suco")){
+                else if (arrayLinhaCSV[2].equalsIgnoreCase("suco")){
                     Suco suco = new Suco();
                     suco.setCodigo(Integer.parseInt(arrayLinhaCSV[0]));
-                    suco.setSabor(arrayLinhaCSV[2]);
-                    suco.setValor(Double.parseDouble(arrayLinhaCSV[3]));
-                    suco.setDescricao(arrayLinhaCSV[4]);
+                    suco.setNome(arrayLinhaCSV[1]);
+                    suco.setSabor(arrayLinhaCSV[3]);
+                    suco.setValor(Double.parseDouble(arrayLinhaCSV[4]));
+                    suco.setDescricao(arrayLinhaCSV[5]);
                     listaProdutos.add(suco);
                 }
-                else if (arrayLinhaCSV[1].equalsIgnoreCase("refrigerante")){
+                else if (arrayLinhaCSV[2].equalsIgnoreCase("refrigerante")){
                     Refrigerante refrigerante = new Refrigerante();
                     refrigerante.setCodigo(Integer.parseInt(arrayLinhaCSV[0]));
-                    refrigerante.setMarca(arrayLinhaCSV[2]);
-                    refrigerante.setValor(Double.parseDouble(arrayLinhaCSV[3]));
-                    refrigerante.setDescricao(arrayLinhaCSV[4]);
+                    refrigerante.setNome(arrayLinhaCSV[1]);
+                    refrigerante.setMarca(arrayLinhaCSV[3]);
+                    refrigerante.setValor(Double.parseDouble(arrayLinhaCSV[4]));
+                    refrigerante.setDescricao(arrayLinhaCSV[5]);
                     listaProdutos.add(refrigerante);
                 }  
             }             

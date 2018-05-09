@@ -64,17 +64,4 @@ public class PersistenciaPedidoTest {
         assertEquals(17, pedido.getValor(),1);
         assertEquals(1, pedido.getIdPedido());
     }
-
-    /**
-     * Test of savePedido method, of class PersistenciaPedido.
-     */
-    /*@Test
-    public void testSavePedido() throws Exception {
-        System.out.println("savePedido");
-        Pedido pedido = null;
-        PersistenciaPedido.savePedido(pedido);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
-    
 }

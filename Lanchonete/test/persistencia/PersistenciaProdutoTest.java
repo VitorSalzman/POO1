@@ -68,17 +68,4 @@ public class PersistenciaProdutoTest {
             } 
         }
     }
-
-    /**
-     * Test of saveProduto method, of class ManipulaCSVProduto.
-    
-    @Test
-    public void testSaveProduto() {
-        System.out.println("saveProduto");
-        Produto produto = null;
-        ManipulaCSVProduto.saveProduto(produto);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    } */
-    
 }
