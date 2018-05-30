@@ -5,17 +5,10 @@
  */
 package transpoint;
 
-import java.util.Date;
-
 /**
  *
- * @author Serenna
+ * @author Salzman
  */
 public class Tarifa {
-    public Date dataHorario; //vai guardar data e horário da tarifagem
-    public int linha;      // linha usada na tarifagem
-    public Cartao card;     //Informações do cartão utilizado aqui?
-    public double valorPago;        //Valor descontado do saldo do cartão na respectiva tarifa
-    
     
 }

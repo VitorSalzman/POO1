@@ -11,6 +11,14 @@ import java.util.ArrayList;
  *
  * @author 20161bsi0403
  */
+
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author 20161bsi0403
+ */
 public class Categoria {         
     public boolean limiteDiario ;        //Se possui ou não
     public int qtdDiaria;  // SE classe possui limite diário, qual é o numero?  R:6,2

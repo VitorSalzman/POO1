@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author Salzman
  */
 public class Cartao {
-    public Categoria categoria;
-    public int codigo;
+    private Categoria categoria;
+    private int codigo;
     public boolean disponivel;
     private double saldo;
 
@@ -37,11 +37,11 @@ public class Cartao {
 
     }
 
-    public String getCategoria(Cartao card) {
-        return card.categoria.getTipo();
+    public String getNomeCategoria() {
+        return categoria.getTipo();
     }
 
-    public int getCodigo(Cartao card) {
+    public int getCodigo() {
         return codigo;
     }
 
@@ -56,6 +56,8 @@ public class Cartao {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
+
+   
     
       
     

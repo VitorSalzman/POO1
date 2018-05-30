@@ -47,7 +47,7 @@ public abstract class Pessoa {
     
     public void listarCartoes(ArrayList<Cartao> cards){
         for(Cartao card : cards){
-            System.out.println(" 1 - " + card.getTipo() + ";");
+            System.out.println(" 1 - " + card.categoria.getTipo() + ";");
         }
     }
     

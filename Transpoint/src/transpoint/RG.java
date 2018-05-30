@@ -5,18 +5,16 @@
  */
 package transpoint;
 
-import java.util.Date;
-
 /**
  *
  * @author Salzman
  */
 public class RG {
-    private Date dataNascimento;
+    private String dataNascimento;
     private String orgaoEmissor;
-    private int codigo;
+    private String codigo;
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -24,11 +22,11 @@ public class RG {
         this.orgaoEmissor = orgaoEmissor;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
@@ -36,7 +34,7 @@ public class RG {
         return orgaoEmissor;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
     

@@ -7,27 +7,8 @@ package transpoint;
 
 /**
  *
- * @author Serenna
+ * @author Salzman
  */
 public class Passagem {
-    private double valorSemana;
-    private double valorDomingo;
-
-    public double getValorSemana() {
-        return valorSemana;
-    }
-
-    public void setValorSemana(double valorSemana) {
-        this.valorSemana = valorSemana;
-    }
-
-    public double getValorDomingo() {
-        return valorDomingo;
-    }
-
-    public void setValorDomingo(double valorDomingo) {
-        this.valorDomingo = valorDomingo;
-    }
-    
     
 }

@@ -7,7 +7,7 @@ package transpoint;
 
 /**
  *
- * @author Serenna
+ * @author Salzman
  */
 public class BloqueioCartao {
     

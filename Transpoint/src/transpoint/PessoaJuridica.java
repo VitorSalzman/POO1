@@ -19,5 +19,7 @@ public class PessoaJuridica extends Pessoa {
     public void setCnpj(int cnpj) {
         this.cnpj = cnpj;
     }
-
+    
+    
+    
 }
