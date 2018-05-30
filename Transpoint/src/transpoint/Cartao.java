@@ -5,50 +5,40 @@
  */
 package transpoint;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Salzman
  */
 public class Cartao {
-    
-    public Categoria categoria;   //Pago ou gratuita
+    public Categoria categoria;
     public int codigo;
     public boolean disponivel;
+    private double saldo;
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        if (saldo>=0) this.saldo = saldo;
+        else System.out.println("saldo invalido");
+    }
     
     // Aqui n devia estar lidando com isso?
-    public Cartao(String categoria){
-        if((categoria.equalsIgnoreCase("EstudanteGratuito")) || (categoria.equalsIgnoreCase("Idoso")) || (categoria.equalsIgnoreCase("PasseLivre"))){
-            
-            if(categoria.equalsIgnoreCase("EstudanteGratuito")){
-                EstudanteGratuito categoria = new EstudanteGratuito(365,"linhas-cadastradas-aqui");
+    public Cartao(String descricao){
                 
-            }   
-            else{
-                Gratuito categoria = new Gratuito(365);
-                
-            }
+            ArrayList linhasCadastradas = new ArrayList();
+            linhasCadastradas = null;  //tratar a passagem da lista por parametro
             
-            this.categoria.setTipo(categoria);
-        }
-        else if((categoria.equalsIgnoreCase("Estudante")) || (categoria.equalsIgnoreCase("PasseFacil")) || (categoria.equalsIgnoreCase(ValeTransporte)) || (categoria.equalsIgnoreCase("Servico"))){
-            Paga categoria = new Paga(true); //True refere-se ao atributo 'integral' de Paga
-            this.categoria.setTipo(categoria);
-        }
-        
-        else{
-            //tratamento de erro.
-        }
-     
-        
-        
+            Categoria category = new Categoria(descricao,linhasCadastradas);
+            this.categoria = category;
+
     }
 
     public String getCategoria(Cartao card) {
-        if (card.categoria instanceof Gratuito){
-            return "Gratuito";
-            
-        }
-        return "Paga";
+        return card.categoria.getTipo();
     }
 
     public int getCodigo(Cartao card) {
@@ -59,8 +49,6 @@ public class Cartao {
         return disponivel;
     }
 
-   
-
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -69,8 +57,7 @@ public class Cartao {
         this.disponivel = disponivel;
     }
     
-    
-    
+      
     
     
     

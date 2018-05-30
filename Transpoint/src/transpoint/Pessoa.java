@@ -14,16 +14,20 @@ import java.util.ArrayList;
 public abstract class Pessoa {
     public String nome;
     public ArrayList<Cartao> cartoesTranscol;
-    
-    public  void setNome(String nome){
-        this.nome = nome;
-    }
-    
-    
-    public String getNome(){
+    public Endereco endereco;
+    public String telefone;
+    public RG rg;
+
+    public String getNome() {
         return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+   
     
+    /* Não é a classe pessoa que gerencia isso
     public void addCartao(Cartao card){
         cartoesTranscol.add(card);
     }
@@ -32,20 +36,34 @@ public abstract class Pessoa {
         
         boolean removido = false;
         for(int i =0; i<listaCartoes.size();i++){
-            if(Cartao.comparaCartao(listaCartoes.get(i),card)){
+            if(Cartao.comparaCartao(listaCartoes.get(i),card)){ //SE DER, IMPLEMENTAR A FUNÇÃO
                 listaCartoes.remove(i);
                 removido = true;
             }
         }
         return removido;
         
-    }
+    }*/ 
     
     public void listarCartoes(ArrayList<Cartao> cards){
         for(Cartao card : cards){
-            System.out.println(" 1 - " + Cartao.getTipo(card) + ";");
+            System.out.println(" 1 - " + card.getTipo() + ";");
         }
     }
+    
+    public String getEndereco(){
+        return endereco.getEndereco();
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
+    
     
     
     
