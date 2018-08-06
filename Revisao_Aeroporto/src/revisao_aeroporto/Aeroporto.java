@@ -9,6 +9,9 @@ package revisao_aeroporto;
  *
  * @author 20161bsi0403
  */
+
 public class Aeroporto {
+     public int codigo;
+     public String nome;
     
 }
