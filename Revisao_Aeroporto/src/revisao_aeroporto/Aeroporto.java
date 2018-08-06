@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercinterfaces;
-
-import java.util.List;
+package revisao_aeroporto;
 
 /**
  *
- * @author Serenna
+ * @author 20161bsi0403
  */
-public interface ICalcula {
-    public double calcula(List<Integer> lista);
+public class Aeroporto {
+    
 }
