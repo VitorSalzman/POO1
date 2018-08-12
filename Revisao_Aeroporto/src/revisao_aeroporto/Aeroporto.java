@@ -16,10 +16,19 @@ public class Aeroporto {
      private int codigo;
      private String nome;
      private boolean isInternacional = true;
-     private ArrayList<Aeroporto> destinosDiretos;
-     private ArrayList<Aeroporto> origensDiretas;
+     private ArrayList<String> destinosDiretos;
+     private ArrayList<String> origensDiretas;
      private ArrayList<Aviao> avioesNoPatio;
      
+    public Aeroporto(int codigo, String nome, boolean isInternacional){
+        this.codigo=codigo;
+        this.nome=nome;
+        this.isInternacional=isInternacional;
+        this.avioesNoPatio = new ArrayList<Aviao>();
+        this.destinosDiretos = new ArrayList<String>();
+        this.origensDiretas = new ArrayList<String>();
+     
+    }
     public int getCodigo() {
         return codigo;
     }
@@ -35,10 +44,19 @@ public class Aeroporto {
     public void setNome(String nome) {
         this.nome = nome;
     }
-     
-    public boolean isInternacional(){
-        return this.isInternacional;
-    } 
+
+    public boolean isInternacional() {
+        return isInternacional;
+    }
+
+    public ArrayList<String> getDestinosDiretos() {
+        return destinosDiretos;
+    }
+
+    public ArrayList<String> getOrigensDiretas() {
+        return origensDiretas;
+    }
+    
     
     public void setIsInternacional(boolean situacao){
         this.isInternacional=situacao;
@@ -51,6 +69,10 @@ public class Aeroporto {
 
     public ArrayList<Aviao> getAvioesNoPatio() {
         return avioesNoPatio;
+    }
+    
+    public void estacionaAviao(Aviao aviao){
+        this.avioesNoPatio.add(aviao);
     }
     
     
@@ -66,4 +88,6 @@ public class Aeroporto {
         return false;
         
     }
+    
+  
 }

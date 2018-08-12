@@ -15,7 +15,16 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Aviao aviao1 = new Aviao("PPR","AR1","EMBRAER",44);
+        Aviao aviao2 = new Aviao("PRR","AR2","GOL",45);
+        Aeroporto aero = new Aeroporto(111,"AAA",true);
+        
+        aero.estacionaAviao(aviao2);
+        aero.estacionaAviao(aviao1);
+        if(aero.estaPousado(aero, aviao1.getPrefixo())){
+            System.out.println("TRUEE");
+        }
+        
     }
     
 }

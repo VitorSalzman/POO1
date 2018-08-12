@@ -14,7 +14,14 @@ public class Aviao {
     String modelo;
     String fabricante;
     int quantAssentos;
-
+    
+    
+    public Aviao(String prefixo, String modelo, String fabricante, int quantAssentos){
+        this.prefixo=prefixo;
+        this.modelo=modelo;
+        this.fabricante=fabricante;
+        this.quantAssentos=quantAssentos;
+    }
     public String getPrefixo() {
         return prefixo;
     }
